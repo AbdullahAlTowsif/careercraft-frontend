@@ -19,10 +19,9 @@ import { useAppDispatch } from "@/redux/hook";
 // Navigation links array to be used in both desktop and mobile menus
 const navigationLinks = [
     { href: "/", label: "Home", role: "PUBLIC" },
-    { href: "/about", label: "About", role: "PUBLIC" },
-    { href: "/faq", label: "FAQs", role: "PUBLIC" },
-    { href: "/features", label: "Features", role: "PUBLIC" },
-    { href: "/contact", label: "Contact", role: "PUBLIC" },
+    { href: "/jobs", label: "Jobs & Opportunities", role: "PUBLIC" },
+    { href: "/resource", label: "Learning Resources", role: "PUBLIC" },
+    { href: "/dashboard", label: "Dashboard", role: "PRIVATE" },
 ];
 
 export default function Navbar() {

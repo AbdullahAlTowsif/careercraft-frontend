@@ -3,6 +3,7 @@ import App from "@/App";
 import Homepage from "@/pages/Landing/Homepage";
 import Register from "@/pages/Auth/Register";
 import Login from "@/pages/Auth/Login";
+import AllJobs from "@/pages/JobsOpportunities/AllJobs";
 
 export const router = createBrowserRouter([
   {
@@ -23,4 +24,8 @@ export const router = createBrowserRouter([
     Component: Login,
     path: "/login"
   },
+  {
+    Component: AllJobs,
+    path: "/jobs"
+  }
 ]);

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/incompatible-library */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useEffect } from "react";
@@ -29,6 +30,7 @@ import {
     SelectContent,
     SelectItem,
 } from "@/components/ui/select";
+import { useNavigate } from "react-router";
 
 // 🎯 1. Zod Schema (Same style as register form)
 const formSchema = z.object({
@@ -74,6 +76,7 @@ const formSchema = z.object({
 });
 
 export default function UpdateProfile() {
+    const navigate = useNavigate();
     const { data: userInfo, isLoading: userLoading } = useUserInfoQuery(undefined);
     const [updateUser, { isLoading }] = useUserUpdateProfileMutation();
 
@@ -125,6 +128,7 @@ export default function UpdateProfile() {
 
             console.log("Update successful:", result);
             toast.success("Profile updated successfully!");
+            navigate("/")
         } catch (error: any) {
             console.error("Update error:", error);
             toast.error(error?.data?.message || "Something went wrong");

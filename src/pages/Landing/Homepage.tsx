@@ -1,3 +1,4 @@
+import FAQ from "@/components/modules/home/FAQ";
 import Hero from "@/components/modules/home/Hero";
 import JobSection from "@/components/modules/home/JobSection";
 
@@ -6,6 +7,7 @@ const Homepage = () => {
         <div>
             <Hero></Hero>
             <JobSection />
+            <FAQ />
         </div>
     );
 };

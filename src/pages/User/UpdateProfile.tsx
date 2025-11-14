@@ -367,13 +367,6 @@ export default function UpdateProfile() {
                         )}
                     />
 
-                    {/* DEBUG INFO - Remove in production */}
-                    <div className="p-4 bg-gray-100 rounded-md">
-                        <h3 className="font-semibold mb-2">Debug Info:</h3>
-                        <p>Form Values: {JSON.stringify(form.watch(), null, 2)}</p>
-                        <p className="mt-2">Form Errors: {JSON.stringify(form.formState.errors, null, 2)}</p>
-                    </div>
-
                     {/* SUBMIT BUTTON */}
                     <Button type="submit" className="w-full" disabled={isLoading}>
                         {isLoading ? (

@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import heroImg from "../../../assets/images/1.jpeg"
+import heroImg from "../../../assets/images/hero2.jpeg"
 import { Link } from "react-router";
 
 export const Hero = () => {
   return (
-    <section className="w-full bg-linear-to-b from-blue-50 to-white dark:from-gray-900 dark:to-black py-20">
+    <section className="w-full bg-linear-to-b from-blue-50 to-white dark:from-gray-900 dark:to-black py-5">
       <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center">
 
         {/* LEFT TEXT */}

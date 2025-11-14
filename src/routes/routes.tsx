@@ -4,7 +4,8 @@ import Homepage from "@/pages/Landing/Homepage";
 import Register from "@/pages/Auth/Register";
 import Login from "@/pages/Auth/Login";
 import AllJobs from "@/pages/JobsOpportunities/AllJobs";
-import jobDetails from "@/pages/JobsOpportunities/jobDetails";
+import JobDetails from "@/pages/JobsOpportunities/JobDetails";
+import AllResources from "@/pages/learningResources/AllResource";
 
 export const router = createBrowserRouter([
   {
@@ -30,7 +31,11 @@ export const router = createBrowserRouter([
     path: "/jobs"
   },
   {
-    Component: jobDetails,
+    Component: JobDetails,
     path: "/jobs/:jobId"
+  },
+  {
+    Component: AllResources,
+    path: "/resources"
   }
 ]);

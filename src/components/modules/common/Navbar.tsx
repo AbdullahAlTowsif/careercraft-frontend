@@ -21,7 +21,7 @@ import { useAppDispatch } from "@/redux/hook";
 const navigationLinks = [
     { href: "/", label: "Home", role: "PUBLIC" },
     { href: "/jobs", label: "Jobs & Opportunities", role: "PUBLIC" },
-    { href: "/resource", label: "Learning Resources", role: "PUBLIC" },
+    { href: "/resources", label: "Learning Resources", role: "PUBLIC" },
     { href: "/dashboard", label: "Dashboard", role: "PRIVATE" },
 ];
 

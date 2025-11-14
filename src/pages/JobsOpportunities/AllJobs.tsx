@@ -12,13 +12,6 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Eye, Loader2, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
-// import {
-//     Select,
-//     SelectContent,
-//     SelectItem,
-//     SelectTrigger,
-//     SelectValue,
-// } from "@/components/ui/select";
 import { useGetAllJobsQuery } from "@/redux/features/jobs/jobs.api";
 import { Link, useSearchParams } from "react-router";
 import Navbar from "@/components/modules/common/Navbar";
@@ -66,14 +59,6 @@ const AllJobs = () => {
 
     console.log("filtered jobs", filteredJobs);
 
-    //   // Update URL Params
-    // const updateFilter = (key: string, value: string) => {
-    //     if (value) searchParams.set(key, value);
-    //     else searchParams.delete(key);
-
-    //     setSearchParams(searchParams);
-    // };
-
     return (
         <div>
             <Navbar />
@@ -94,57 +79,6 @@ const AllJobs = () => {
                         </div>
 
                         <div className="flex flex-wrap gap-4">
-                            {/* Location Filter */}
-                            {/* <Select
-              value={location}
-              onValueChange={(value) => updateFilter("location", value)}
-            >
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Location" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="ALL">All</SelectItem>
-                <SelectItem value="Remote">Remote</SelectItem>
-                <SelectItem value="Dhaka">Dhaka</SelectItem>
-                <SelectItem value="Chittagong">Chittagong</SelectItem>
-              </SelectContent>
-            </Select> */}
-
-                            {/* Job Type Filter */}
-                            {/* <Select
-              value={jobType}
-              onValueChange={(value) => updateFilter("jobType", value)}
-            >
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Job Type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="ALL">All</SelectItem>
-                <SelectItem value="INTERNSHIP">Internship</SelectItem>
-                <SelectItem value="PART_TIME">Part-Time</SelectItem>
-                <SelectItem value="FULL_TIME">Full-Time</SelectItem>
-                <SelectItem value="FREELANCE">Freelance</SelectItem>
-              </SelectContent>
-            </Select> */}
-
-                            {/* Experience Filter */}
-                            {/* <Select
-              value={recommendedExperienceLevel}
-              onValueChange={(value) =>
-                updateFilter("recommendedExperienceLevel", value)
-              }
-            >
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Experience Level" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="ALL">All</SelectItem>
-                <SelectItem value="FRESHER">Fresher</SelectItem>
-                <SelectItem value="JUNIOR">Junior</SelectItem>
-                <SelectItem value="MID">Mid</SelectItem>
-                <SelectItem value="SENIOR">Senior</SelectItem>
-              </SelectContent>
-            </Select> */}
                             <Link to={`/`}>
                                 <Button>Job Post</Button>
                             </Link>

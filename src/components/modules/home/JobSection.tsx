@@ -79,11 +79,11 @@ const JobSection = () => {
                                             View Details
                                         </Button>
                                     </Link>
-                                    <Link to={`/apply/${job._id}`} className="flex-1 ml-2">
+                                    {/* <Link to={`/apply/${job._id}`} className="flex-1 ml-2">
                                         <Button variant="outline" className="w-full" size="sm">
                                             Apply Now
                                         </Button>
-                                    </Link>
+                                    </Link> */}
                                 </div>
                             </CardContent>
                         </Card>

@@ -1,4 +1,5 @@
 import Logo from "@/assets/icons/Logo";
+// import Logo from "../../../assets/icons/logo.png";
 import { Button } from "@/components/ui/button";
 import {
     NavigationMenu,
@@ -96,9 +97,9 @@ export default function Navbar() {
                     </Popover>
                     {/* Main nav */}
                     <div className="flex items-center gap-6">
-                        <a href="#" className="text-primary hover:text-primary/90">
+                        <Link to="/" className="text-primary hover:text-primary/90 w-10 h-10">
                             <Logo />
-                        </a>
+                        </Link>
                         {/* Navigation menu */}
                         <NavigationMenu className="max-md:hidden">
                             <NavigationMenuList className="gap-2">

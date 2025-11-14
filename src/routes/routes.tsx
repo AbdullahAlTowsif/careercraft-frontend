@@ -4,6 +4,7 @@ import Homepage from "@/pages/Landing/Homepage";
 import Register from "@/pages/Auth/Register";
 import Login from "@/pages/Auth/Login";
 import AllJobs from "@/pages/JobsOpportunities/AllJobs";
+import jobDetails from "@/pages/JobsOpportunities/jobDetails";
 
 export const router = createBrowserRouter([
   {
@@ -27,5 +28,9 @@ export const router = createBrowserRouter([
   {
     Component: AllJobs,
     path: "/jobs"
+  },
+  {
+    Component: jobDetails,
+    path: "/jobs/:jobId"
   }
 ]);

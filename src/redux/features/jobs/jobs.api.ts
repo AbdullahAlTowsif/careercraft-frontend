@@ -24,14 +24,6 @@ export const jobsApi = baseApi.injectEndpoints({
             }),
             providesTags: ["JOBS"],
         }),
-        // adminUpdateProfile: builder.mutation({
-        //     query: ({ id, payload }) => ({
-        //         url: `/user/${id}`,
-        //         method: "PATCH",
-        //         data: payload,
-        //     }),
-        //     invalidatesTags: ["USER"],
-        // }),
     }),
 });
 

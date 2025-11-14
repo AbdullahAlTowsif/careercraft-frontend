@@ -10,7 +10,7 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import { Card, CardContent } from "@/components/ui/card";
-import { Loader2, Search } from "lucide-react";
+import { Eye, Loader2, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 // import {
 //     Select,
@@ -20,7 +20,9 @@ import { Input } from "@/components/ui/input";
 //     SelectValue,
 // } from "@/components/ui/select";
 import { useGetAllJobsQuery } from "@/redux/features/jobs/jobs.api";
-import { useSearchParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
+import Navbar from "@/components/modules/common/Navbar";
+import { Button } from "@/components/ui/button";
 
 const AllJobs = () => {
     const [searchParams] = useSearchParams();
@@ -73,25 +75,27 @@ const AllJobs = () => {
     // };
 
     return (
-        <Card className="p-4">
-            <CardContent>
-                {/* Filters Section: Search + Dropdowns */}
-                <div className="flex flex-col md:flex-row gap-4 mb-4 justify-between">
-                    {/* Search Input */}
-                    <div className="relative w-full md:w-1/3">
-                        <Search className="absolute left-2 top-2.5 w-4 h-4 text-gray-400" />
-                        <Input
-                            type="text"
-                            placeholder="Search by job title or company..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            className="pl-8"
-                        />
-                    </div>
+        <div>
+            <Navbar />
+            <Card className="p-4">
+                <CardContent>
+                    {/* Filters Section: Search + Dropdowns */}
+                    <div className="flex flex-col md:flex-row gap-4 mb-4 justify-between">
+                        {/* Search Input */}
+                        <div className="relative w-full md:w-1/3">
+                            <Search className="absolute left-2 top-2.5 w-4 h-4 text-gray-400" />
+                            <Input
+                                type="text"
+                                placeholder="Search by job title or company..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="pl-8"
+                            />
+                        </div>
 
-                    <div className="flex flex-wrap gap-4">
-                        {/* Location Filter */}
-                        {/* <Select
+                        <div className="flex flex-wrap gap-4">
+                            {/* Location Filter */}
+                            {/* <Select
               value={location}
               onValueChange={(value) => updateFilter("location", value)}
             >
@@ -106,8 +110,8 @@ const AllJobs = () => {
               </SelectContent>
             </Select> */}
 
-                        {/* Job Type Filter */}
-                        {/* <Select
+                            {/* Job Type Filter */}
+                            {/* <Select
               value={jobType}
               onValueChange={(value) => updateFilter("jobType", value)}
             >
@@ -123,8 +127,8 @@ const AllJobs = () => {
               </SelectContent>
             </Select> */}
 
-                        {/* Experience Filter */}
-                        {/* <Select
+                            {/* Experience Filter */}
+                            {/* <Select
               value={recommendedExperienceLevel}
               onValueChange={(value) =>
                 updateFilter("recommendedExperienceLevel", value)
@@ -141,47 +145,60 @@ const AllJobs = () => {
                 <SelectItem value="SENIOR">Senior</SelectItem>
               </SelectContent>
             </Select> */}
+                            <Link to={`/`}>
+                                <Button>Job Post</Button>
+                            </Link>
+                        </div>
                     </div>
-                </div>
 
-                {/* Jobs Table */}
-                <Table>
-                    <TableCaption>A list of job opportunities</TableCaption>
+                    {/* Jobs Table */}
+                    <Table>
+                        <TableCaption>A list of job opportunities</TableCaption>
 
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead>#</TableHead>
-                            <TableHead>Job Title</TableHead>
-                            <TableHead>Company</TableHead>
-                            <TableHead>Location</TableHead>
-                            <TableHead>Job Type</TableHead>
-                            <TableHead>Experience Level</TableHead>
-                        </TableRow>
-                    </TableHeader>
-
-                    <TableBody>
-                        {filteredJobs.length > 0 ? (
-                            filteredJobs.map((job: any, index: number) => (
-                                <TableRow key={job._id}>
-                                    <TableCell>{index + 1}</TableCell>
-                                    <TableCell>{job.jobTitle}</TableCell>
-                                    <TableCell>{job.company}</TableCell>
-                                    <TableCell>{job.location}</TableCell>
-                                    <TableCell>{job.jobType}</TableCell>
-                                    <TableCell>{job.recommendedExperienceLevel}</TableCell>
-                                </TableRow>
-                            ))
-                        ) : (
+                        <TableHeader>
                             <TableRow>
-                                <TableCell colSpan={6} className="text-center text-gray-500 py-4">
-                                    No jobs found
-                                </TableCell>
+                                <TableHead>#</TableHead>
+                                <TableHead>Job Title</TableHead>
+                                <TableHead>Company</TableHead>
+                                <TableHead>Location</TableHead>
+                                <TableHead>Job Type</TableHead>
+                                <TableHead>Experience Level</TableHead>
+                                <TableHead>Details</TableHead>
                             </TableRow>
-                        )}
-                    </TableBody>
-                </Table>
-            </CardContent>
-        </Card>
+                        </TableHeader>
+
+                        <TableBody>
+                            {filteredJobs.length > 0 ? (
+                                filteredJobs.map((job: any, index: number) => (
+                                    <TableRow key={job._id}>
+                                        <TableCell>{index + 1}</TableCell>
+                                        <TableCell>{job.jobTitle}</TableCell>
+                                        <TableCell>{job.company}</TableCell>
+                                        <TableCell>{job.location}</TableCell>
+                                        <TableCell>{job.jobType}</TableCell>
+                                        <TableCell>{job.recommendedExperienceLevel}</TableCell>
+                                        <TableCell>
+                                            <Link
+                                                to={`/jobs/${job._id}`}
+                                                className="text-blue-600 hover:text-blue-800"
+                                            >
+                                                <Eye className="w-5 h-5 cursor-pointer" />
+                                            </Link>
+                                        </TableCell>
+                                    </TableRow>
+                                ))
+                            ) : (
+                                <TableRow>
+                                    <TableCell colSpan={6} className="text-center text-gray-500 py-4">
+                                        No jobs found
+                                    </TableCell>
+                                </TableRow>
+                            )}
+                        </TableBody>
+                    </Table>
+                </CardContent>
+            </Card>
+        </div>
     );
 };
 

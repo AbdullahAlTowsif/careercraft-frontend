@@ -1,5 +1,4 @@
 import Logo from "@/assets/icons/Logo";
-// import Logo from "../../../assets/icons/logo.png";
 import { Button } from "@/components/ui/button";
 import {
     NavigationMenu,
@@ -22,12 +21,12 @@ const navigationLinks = [
     { href: "/", label: "Home", role: "PUBLIC" },
     { href: "/jobs", label: "Jobs & Opportunities", role: "PUBLIC" },
     { href: "/resources", label: "Learning Resources", role: "PUBLIC" },
-    { href: "/dashboard", label: "Dashboard", role: "PRIVATE" },
+    { href: "/dashboard", label: "Dashboard", role: "USER" },
 ];
 
 export default function Navbar() {
     const { data } = useUserInfoQuery(undefined);
-    console.log(data);
+    console.log(data?.data.role);
     const [logout] = useLogoutMutation();
     const dispatch = useAppDispatch();
 
@@ -37,9 +36,9 @@ export default function Navbar() {
     };
 
     // Filter navigation links based on user role
-    //   const filteredLinks = navigationLinks.filter(link => 
-    //     link.role === "PUBLIC" || link.role === data?.data?.role
-    //   );
+      const filteredLinks = navigationLinks.filter(link => 
+        link.role === "PUBLIC" || link.role === data?.data?.role
+      );
 
     return (
         <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md px-4 md:px-6">
@@ -84,7 +83,7 @@ export default function Navbar() {
                         <PopoverContent align="start" className="w-36 p-1 md:hidden">
                             <NavigationMenu className="max-w-none *:w-full">
                                 <NavigationMenuList className="flex-col items-start gap-0 md:gap-2">
-                                    {navigationLinks.map((link) => (
+                                    {filteredLinks.map((link) => (
                                         <NavigationMenuItem key={link.href} className="w-full">
                                             <NavigationMenuLink asChild className="py-1.5">
                                                 <Link to={link.href}>{link.label}</Link>
@@ -103,7 +102,7 @@ export default function Navbar() {
                         {/* Navigation menu */}
                         <NavigationMenu className="max-md:hidden">
                             <NavigationMenuList className="gap-2">
-                                {navigationLinks.map((link) => (
+                                {filteredLinks.map((link) => (
                                     <NavigationMenuItem key={link.href}>
                                         <NavigationMenuLink
                                             asChild

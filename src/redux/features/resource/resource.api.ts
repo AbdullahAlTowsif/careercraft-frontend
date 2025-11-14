@@ -17,13 +17,13 @@ export const resourceApi = baseApi.injectEndpoints({
             }),
             providesTags: ["RESOURCE"],
         }),
-        // getSingleJob: builder.query({
-        //     query: (id) => ({
-        //         url: `/jobs/${id}`,
-        //         method: "GET"
-        //     }),
-        //     providesTags: ["JOBS"],
-        // }),
+        getSingleResource: builder.query({
+            query: (id) => ({
+                url: `/learn/${id}`,
+                method: "GET"
+            }),
+            providesTags: ["RESOURCE"],
+        }),
     }),
 });
 
